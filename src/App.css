@@ -2,6 +2,22 @@
   border: 1px white solid;
 }
 
+body {
+  background-color: aliceblue;
+}
+
+h1 {
+  color: darkblue;
+}
+
+label {
+  color: black;
+}
+
+input {
+  max-width: 300px;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -43,4 +59,15 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.addFoodForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.addFoodLabel {
+  display: inline-block;
 }
