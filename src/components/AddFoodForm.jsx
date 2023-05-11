@@ -2,7 +2,7 @@ import { Divider, Input } from "antd";
 import { useState } from "react";
 
 // Iteration 4
-function AddFoodForm({ setFood, prevFood, setPrevFood }) {
+function AddFoodForm({ createFood }) {
   // const [newFood, setNewFood] = useState();
   const [name, setFoodName] = useState("");
   const [image, setFoodImage] = useState("");
@@ -11,11 +11,16 @@ function AddFoodForm({ setFood, prevFood, setPrevFood }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    //console.log(event);
-    const newFood = [{ name, image, calories, servings }, ...prevFood];
-    console.log("newfood: ", newFood);
-    setFood(newFood);
-    setPrevFood(newFood);
+    console.log(event);
+    const newFood = {
+      name,
+      image,
+      calories,
+      servings,
+    };
+
+    createFood(newFood);
+
     setFoodName("");
     setFoodImage("");
     setFoodCalories(0);
