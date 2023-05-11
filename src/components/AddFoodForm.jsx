@@ -1,5 +1,6 @@
 import { Divider, Input } from "antd";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 // Iteration 4
 function AddFoodForm({ createFood }) {
@@ -17,6 +18,7 @@ function AddFoodForm({ createFood }) {
       image,
       calories,
       servings,
+      id: uuidv4(),
     };
 
     createFood(newFood);
