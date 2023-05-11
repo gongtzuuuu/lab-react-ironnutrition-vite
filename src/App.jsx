@@ -7,15 +7,16 @@ import { Row, Divider, Button } from "antd";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
+// Add an id to each food
 foodsData.forEach((eachFood) => {
   eachFood.id = uuidv4();
 });
 
 function App() {
-  // Declare state of food
+  // Declare state of food - all food and displaying food
   const [allFood, setAllFood] = useState(foodsData);
   const [displayingFood, setDisplayingFood] = useState(foodsData);
-  // const [prevFood, setPrevFood] = useState(foodsData);
+  const [isHidden, setIsHidden] = useState(false);
 
   function createFood(newFood) {
     setAllFood([newFood, ...allFood]);
@@ -35,7 +36,6 @@ function App() {
         return currentFood;
       }
     });
-    console.log(updateFood);
     setAllFood(updateFood);
     setDisplayingFood(updateFood);
   }
@@ -43,9 +43,16 @@ function App() {
   return (
     <div className="App">
       <h1>Food List</h1>
-      <AddFoodForm createFood={createFood} />
+      <AddFoodForm createFood={createFood} isHidden={isHidden} />
 
-      <Button> Hide Form / Add New Food</Button>
+      <Button
+        onClick={() => {
+          setIsHidden(!isHidden);
+        }}
+      >
+        {" "}
+        {isHidden ? "Hide Form" : "Add New Food"}{" "}
+      </Button>
 
       <Search searchFood={searchFood} />
 

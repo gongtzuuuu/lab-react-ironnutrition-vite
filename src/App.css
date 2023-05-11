@@ -14,6 +14,10 @@ input {
   max-width: 300px;
 }
 
+button {
+  margin: 1rem;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -64,6 +68,15 @@ input {
   align-items: center;
 }
 
-.addFoodLabel {
-  display: inline-block;
+.addFoodFormLabel {
+  display: flex;
+  align-items: center;
+}
+
+.addFoodFormLabel p {
+  margin: 0.5rem;
+}
+
+.addFoodFormLabel input {
+  height: 2rem;
 }

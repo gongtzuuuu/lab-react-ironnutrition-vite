@@ -3,7 +3,7 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 // Iteration 4
-function AddFoodForm({ createFood }) {
+function AddFoodForm({ createFood, isHidden }) {
   // const [newFood, setNewFood] = useState();
   const [name, setFoodName] = useState("");
   const [image, setFoodImage] = useState("");
@@ -30,12 +30,13 @@ function AddFoodForm({ createFood }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="addFoodForm">
+    <form onSubmit={handleSubmit} hidden={!isHidden}>
       <Divider>Add Food Entry</Divider>
 
-      <label>
-        Name:
+      <label className="addFoodFormLabel">
+        <p>Name: </p>
         <Input
+          placeholder="Name:"
           value={name}
           name="name"
           type="text"
@@ -45,9 +46,10 @@ function AddFoodForm({ createFood }) {
         />
       </label>
 
-      <label>
-        Image:
+      <label className="addFoodFormLabel">
+        <p>Image: </p>
         <Input
+          placeholder="Image:"
           value={image}
           name="image"
           type="text"
@@ -57,9 +59,10 @@ function AddFoodForm({ createFood }) {
         />
       </label>
 
-      <label>
-        Calories:
+      <label className="addFoodFormLabel">
+        <p>Calories:</p>
         <Input
+          placeholder="Calories:"
           value={calories}
           name="calories"
           type="number"
@@ -69,9 +72,10 @@ function AddFoodForm({ createFood }) {
         />
       </label>
 
-      <label>
-        Servings:
+      <label className="addFoodFormLabel">
+        <p>Servings</p>
         <Input
+          placeholder="Servings:"
           value={servings}
           name="servings"
           type="number"
